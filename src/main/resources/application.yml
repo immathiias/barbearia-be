@@ -1,1 +1,6 @@
-
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      uri: ${MONGO_DB_URI:mongodb+srv://barber:nW7FZGtScEAsxDxm@barbercluster.jqjtrf0.mongodb.net/barber?retryWrites=true&w=majority}
+      auto-index-creation: true
