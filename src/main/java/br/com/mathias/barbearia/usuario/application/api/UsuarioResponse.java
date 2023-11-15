@@ -2,11 +2,14 @@ package br.com.mathias.barbearia.usuario.application.api;
 
 import java.util.UUID;
 
-import lombok.Builder;
+import br.com.mathias.barbearia.usuario.domain.Usuario;
 import lombok.Value;
 
-@Builder
 @Value
 public class UsuarioResponse {
 	private UUID idUsuario;
+	
+	public UsuarioResponse(Usuario usuarioNovo) {
+		this.idUsuario = usuarioNovo.getIdUsuario();
+	}
 }
