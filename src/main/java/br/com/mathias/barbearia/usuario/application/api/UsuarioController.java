@@ -1,5 +1,7 @@
 package br.com.mathias.barbearia.usuario.application.api;
 
+import java.util.List;
+
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,6 +23,13 @@ public class UsuarioController implements UsuarioAPI {
 		UsuarioResponse usuarioCriado = usuarioService.criaUsuario(usuario);
 		log.info("[finaliza] UsuarioController - postUsuario");
 		return usuarioCriado;
+	}
+
+	@Override
+	public List<UsuarioListResponse> getTodosUsuarios() {
+		log.info("[inicia] UsuarioController - getTodosUsuarios");
+		log.info("[finaliza] UsuarioController - getTodosUsuarios");
+		return null;
 	}
 
 }
