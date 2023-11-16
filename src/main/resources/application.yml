@@ -1,3 +1,7 @@
+server:
+  servlet:
+    context-path: /barbearia/api
+
 spring:
   data:
     mongodb:
