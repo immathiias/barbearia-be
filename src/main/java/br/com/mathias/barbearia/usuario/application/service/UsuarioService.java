@@ -3,6 +3,7 @@ package br.com.mathias.barbearia.usuario.application.service;
 import java.util.List;
 import java.util.UUID;
 
+import br.com.mathias.barbearia.usuario.application.api.UsuarioAlteracaoRequest;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioDetalhadoResponse;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioListResponse;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioRequest;
@@ -17,5 +18,7 @@ public interface UsuarioService {
 	UsuarioDetalhadoResponse buscaUsuarioPorId(UUID idUsuario);
 
 	void deletaUsuarioPorId(UUID idUsuario);
+
+	void atualizaUsuarioPorId(UUID idUsuario, UsuarioAlteracaoRequest usuarioAlteracaoRequest);
 
 }

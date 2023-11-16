@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.mathias.barbearia.usuario.application.api.UsuarioAlteracaoRequest;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -32,5 +33,11 @@ public class Usuario {
 		this.nomeUsuario = usuario.getNome();
 		this.telefone = usuario.getTelefone();
 		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
+
+	public void altera(UsuarioAlteracaoRequest usuarioAlteracaoRequest) {
+		this.nomeUsuario = usuarioAlteracaoRequest.getNome();
+		this.telefone = usuarioAlteracaoRequest.getTelefone();
+		this.dataHoraUltimaAtualizacao = LocalDateTime.now();
 	}
 }

@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.mathias.barbearia.usuario.application.api.UsuarioAlteracaoRequest;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioDetalhadoResponse;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioListResponse;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioRequest;
@@ -52,6 +53,16 @@ public class UsuarioApplicationService implements UsuarioService {
 		Usuario usuario = usuarioRepository.buscaUsuarioPorId(idUsuario);
 		usuarioRepository.deletaUsuario(usuario);
 		log.info("[finaliza] UsuarioApplicationService - deletaUsuarioPorId");
+	}
+
+	@Override
+	public void atualizaUsuarioPorId(UUID idUsuario, UsuarioAlteracaoRequest usuarioAlteracaoRequest) {
+		log.info("[inicia] UsuarioApplicationService - atualizaUsuarioPorId");
+		Usuario usuario = usuarioRepository.buscaUsuarioPorId(idUsuario);
+		usuario.altera(usuarioAlteracaoRequest);
+		usuarioRepository.salva(usuario);
+		log.info("[finaliza] UsuarioApplicationService - atualizaUsuarioPorId");
+		
 	}
 
 }
