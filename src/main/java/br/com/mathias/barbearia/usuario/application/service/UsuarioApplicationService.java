@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.mathias.barbearia.usuario.application.api.UsuarioListResponse;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioRequest;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioResponse;
 import br.com.mathias.barbearia.usuario.application.repository.UsuarioRepository;
@@ -29,10 +28,11 @@ public class UsuarioApplicationService implements UsuarioService {
 	}
 
 	@Override
-	public List<UsuarioListResponse> buscaTodosUsuarios() {
+	public List<Usuario> buscaTodosUsuarios() {
 		log.info("[inicia] UsuarioApplicationService - buscaTodosUsuarios");
+		List<Usuario> usuarios = usuarioRepository.buscaTodosUsuarios();
 		log.info("[finaliza] UsuarioApplicationService - buscaTodosUsuarios");
-		return null;
+		return usuarios;
 	}
 
 }

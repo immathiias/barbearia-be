@@ -6,6 +6,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.mathias.barbearia.usuario.application.service.UsuarioService;
+import br.com.mathias.barbearia.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -28,9 +29,9 @@ public class UsuarioController implements UsuarioAPI {
 	@Override
 	public List<UsuarioListResponse> getTodosUsuarios() {
 		log.info("[inicia] UsuarioController - getTodosUsuarios");
-		List<UsuarioListResponse> usuarios = usuarioService.buscaTodosUsuarios();
+		List<Usuario> usuarios = usuarioService.buscaTodosUsuarios();
 		log.info("[finaliza] UsuarioController - getTodosUsuarios");
-		return usuarios;
+		return UsuarioListResponse.converte(usuarios);
 	}
 
 }

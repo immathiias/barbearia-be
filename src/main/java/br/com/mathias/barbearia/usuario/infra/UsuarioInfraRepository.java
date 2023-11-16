@@ -1,5 +1,7 @@
 package br.com.mathias.barbearia.usuario.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.mathias.barbearia.usuario.application.repository.UsuarioRepository;
@@ -20,6 +22,14 @@ public class UsuarioInfraRepository implements UsuarioRepository {
 		usuarioMongoRepository.save(usuarioNovo);
 		log.info("[finaliza] UsuarioInfraRepository - salva");
 		return usuarioNovo;
+	}
+
+	@Override
+	public List<Usuario> buscaTodosUsuarios() {
+		log.info("[inicia] UsuarioInfraRepository - buscaTodosUsuarios");
+		List<Usuario> usuarios = usuarioMongoRepository.findAll();
+		log.info("[finaliza] UsuarioInfraRepository - buscaTodosUsuarios");
+		return usuarios;
 	}
 
 }
