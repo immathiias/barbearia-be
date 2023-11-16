@@ -16,4 +16,6 @@ public interface UsuarioService {
 
 	UsuarioDetalhadoResponse buscaUsuarioPorId(UUID idUsuario);
 
+	void deletaUsuarioPorId(UUID idUsuario);
+
 }

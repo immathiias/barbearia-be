@@ -46,4 +46,10 @@ public class UsuarioApplicationService implements UsuarioService {
 		return new UsuarioDetalhadoResponse(usuario);
 	}
 
+	@Override
+	public void deletaUsuarioPorId(UUID idUsuario) {
+		log.info("[inicia] UsuarioApplicationService - deletaUsuarioPorId");
+		log.info("[finaliza] UsuarioApplicationService - deletaUsuarioPorId");
+	}
+
 }
