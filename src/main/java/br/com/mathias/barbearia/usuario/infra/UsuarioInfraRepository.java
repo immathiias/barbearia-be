@@ -1,7 +1,9 @@
 package br.com.mathias.barbearia.usuario.infra;
 
 import java.util.List;
+import java.util.UUID;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Repository;
 
 import br.com.mathias.barbearia.usuario.application.repository.UsuarioRepository;
@@ -19,7 +21,11 @@ public class UsuarioInfraRepository implements UsuarioRepository {
 	@Override
 	public Usuario salva(Usuario usuarioNovo) {
 		log.info("[inicia] UsuarioInfraRepository - salva");
-		usuarioMongoRepository.save(usuarioNovo);
+		try {
+			usuarioMongoRepository.save(usuarioNovo);
+		} catch (DataIntegrityViolationException e) {
+			throw new RuntimeException("Existem dados duplicados.");
+		}
 		log.info("[finaliza] UsuarioInfraRepository - salva");
 		return usuarioNovo;
 	}
@@ -30,6 +36,15 @@ public class UsuarioInfraRepository implements UsuarioRepository {
 		List<Usuario> usuarios = usuarioMongoRepository.findAll();
 		log.info("[finaliza] UsuarioInfraRepository - buscaTodosUsuarios");
 		return usuarios;
+	}
+
+	@Override
+	public Usuario buscaUsuarioPorId(UUID idUsuario) {
+		log.info("[inicia] UsuarioInfraRepository - buscaUsuarioPorId");
+		Usuario usuario = usuarioMongoRepository.findById(idUsuario)
+				.orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
+		log.info("[finaliza] UsuarioInfraRepository - buscaUsuarioPorId");
+		return usuario;
 	}
 
 }
