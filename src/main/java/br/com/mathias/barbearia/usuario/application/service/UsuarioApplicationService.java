@@ -1,7 +1,10 @@
 package br.com.mathias.barbearia.usuario.application.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import br.com.mathias.barbearia.usuario.application.api.UsuarioListResponse;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioRequest;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioResponse;
 import br.com.mathias.barbearia.usuario.application.repository.UsuarioRepository;
@@ -23,6 +26,13 @@ public class UsuarioApplicationService implements UsuarioService {
 		usuarioRepository.salva(usuarioNovo);
 		log.info("[finaliza] UsuarioApplicationService - criaUsuario");
 		return new UsuarioResponse(usuarioNovo);
+	}
+
+	@Override
+	public List<UsuarioListResponse> buscaTodosUsuarios() {
+		log.info("[inicia] UsuarioApplicationService - buscaTodosUsuarios");
+		log.info("[finaliza] UsuarioApplicationService - buscaTodosUsuarios");
+		return null;
 	}
 
 }
