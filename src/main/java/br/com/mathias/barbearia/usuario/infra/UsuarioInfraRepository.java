@@ -47,4 +47,11 @@ public class UsuarioInfraRepository implements UsuarioRepository {
 		return usuario;
 	}
 
+	@Override
+	public void deletaUsuario(Usuario usuario) {
+		log.info("[inicia] UsuarioInfraRepository - deletaUsuario");
+		usuarioMongoRepository.delete(usuario);
+		log.info("[finaliza] UsuarioInfraRepository - deletaUsuario");
+	}
+
 }

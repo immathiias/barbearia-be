@@ -13,4 +13,6 @@ public interface UsuarioRepository {
 
 	Usuario buscaUsuarioPorId(UUID idUsuario);
 
+	void deletaUsuario(Usuario usuario);
+
 }

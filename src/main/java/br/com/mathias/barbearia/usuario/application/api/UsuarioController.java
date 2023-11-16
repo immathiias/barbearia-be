@@ -37,6 +37,7 @@ public class UsuarioController implements UsuarioAPI {
 	@Override
 	public UsuarioDetalhadoResponse getUsuarioPorId(UUID idUsuario) {
 		log.info("[inicia] UsuarioController - getUsuarioPorId");
+		log.info("[idUsuario] {}", idUsuario);
 		UsuarioDetalhadoResponse usuarioDetalhado = usuarioService.buscaUsuarioPorId(idUsuario);
 		log.info("[finaliza] UsuarioController - getUsuarioPorId");
 		return usuarioDetalhado;
@@ -45,6 +46,7 @@ public class UsuarioController implements UsuarioAPI {
 	@Override
 	public void deleteUsuarioPorId(UUID idUsuario) {
 		log.info("[inicia] UsuarioController - deleteUsuarioPorId");
+		log.info("[idUsuario] {}", idUsuario);
 		usuarioService.deletaUsuarioPorId(idUsuario);
 		log.info("[finaliza] UsuarioController - deleteUsuarioPorId");
 	}
