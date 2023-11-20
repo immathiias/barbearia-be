@@ -1,6 +1,7 @@
 package br.com.mathias.barbearia.cortes.application.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +32,13 @@ public class CorteController implements CorteAPI {
 		List<CorteListResponse> cortes = corteService.buscaTodosCortes();
 		log.info("[finaliza] CortesController - getTodosCortes");
 		return cortes;
+	}
+
+	@Override
+	public CorteDetalhadoResponse getCortePorId(UUID idCorte) {
+		log.info("[inicia] CortesController - getCortePorId");
+		log.info("[finaliza] CortesController - getCortePorId");
+		return null;
 	}
 
 }
