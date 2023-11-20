@@ -1,5 +1,7 @@
 package br.com.mathias.barbearia.cortes.application.api;
 
+import java.util.List;
+
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,8 +13,8 @@ import lombok.extern.log4j.Log4j2;
 @Validated
 @Log4j2
 @RequiredArgsConstructor
-public class CorteController implements CorteAPI {
 
+public class CorteController implements CorteAPI {
 	private final CorteService corteService;
 
 	@Override
@@ -21,6 +23,13 @@ public class CorteController implements CorteAPI {
 		CorteResponse corte = corteService.criaCorte(corteRequest);
 		log.info("[finaliza] CortesController - postCorte");
 		return corte;
+	}
+
+	@Override
+	public List<CorteListResponse> getTodosCortes() {
+		log.info("[inicia] CortesController - getTodosCortes");
+		log.info("[finaliza] CortesController - getTodosCortes");
+		return null;
 	}
 
 }
