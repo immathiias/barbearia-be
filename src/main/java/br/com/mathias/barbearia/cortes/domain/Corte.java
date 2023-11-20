@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.mathias.barbearia.cortes.application.api.CorteRequest;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
@@ -20,7 +21,7 @@ import lombok.NoArgsConstructor;
 public class Corte {
 	
 	@Id
-	private UUID idCortes;
+	private UUID idCorte;
 	@NotBlank
 	private String nomeCorte;
 	@NotNull
@@ -29,4 +30,13 @@ public class Corte {
 	
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraUltimaAtualizacao;
+	
+	
+	public Corte(CorteRequest corteRequest) {
+		this.idCorte = UUID.randomUUID();
+		this.nomeCorte = corteRequest.getNomeCorte();
+		this.valorCorte = corteRequest.getValorCorte();
+		this.tempoEstimadoEmMinutos = corteRequest.getTempoEstimado();
+		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
 }
