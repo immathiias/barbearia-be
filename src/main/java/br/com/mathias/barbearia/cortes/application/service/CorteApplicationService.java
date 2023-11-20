@@ -48,4 +48,12 @@ public class CorteApplicationService implements CorteService {
 		return new CorteDetalhadoResponse(corte);
 	}
 
+	@Override
+	public void deletaCortePorId(UUID idCorte) {
+		log.info("[inicia] CorteApplicationService - deletaCortePorId");
+		Corte corte = corteRepository.buscaCortePorId(idCorte);
+		corteRepository.deletaCorte(corte);
+		log.info("[finaliza] CorteApplicationService - deletaCortePorId");
+	}
+
 }

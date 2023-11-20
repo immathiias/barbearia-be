@@ -9,4 +9,5 @@ public interface CorteRepository {
 	Corte salva(Corte corteNovo);
 	List<Corte> buscaTodosCortes();
 	Corte buscaCortePorId(UUID idCorte);
+	void deletaCorte(Corte corte);
 }

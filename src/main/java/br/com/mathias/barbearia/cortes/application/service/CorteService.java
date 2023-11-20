@@ -12,4 +12,5 @@ public interface CorteService {
 	CorteResponse criaCorte(CorteRequest corteRequest);
 	List<CorteListResponse> buscaTodosCortes();
 	CorteDetalhadoResponse buscaCortePorId(UUID idCorte);
+	void deletaCortePorId(UUID idCorte);
 }

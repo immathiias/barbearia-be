@@ -47,4 +47,11 @@ public class CorteInfraRepository implements CorteRepository {
 		return corte;
 	}
 
+	@Override
+	public void deletaCorte(Corte corte) {
+		log.info("[inicia] CorteInfraRepository - deletaCorte");
+		corteMongoSpringRepository.delete(corte);
+		log.info("[finaliza] CorteInfraRepository - deletaCorte");
+	}
+
 }

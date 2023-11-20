@@ -42,4 +42,11 @@ public class CorteController implements CorteAPI {
 		return corteDetalhado;
 	}
 
+	@Override
+	public void deleteCortePorId(UUID idCorte) {
+		log.info("[inicia] CortesController - deleteCortePorId");
+		corteService.deletaCortePorId(idCorte);
+		log.info("[finaliza] CortesController - deleteCortePorId");
+	}
+
 }
