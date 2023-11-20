@@ -37,8 +37,9 @@ public class CorteController implements CorteAPI {
 	@Override
 	public CorteDetalhadoResponse getCortePorId(UUID idCorte) {
 		log.info("[inicia] CortesController - getCortePorId");
+		CorteDetalhadoResponse corteDetalhado = corteService.buscaCortePorId(idCorte);
 		log.info("[finaliza] CortesController - getCortePorId");
-		return null;
+		return corteDetalhado;
 	}
 
 }

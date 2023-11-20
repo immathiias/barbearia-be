@@ -1,6 +1,7 @@
 package br.com.mathias.barbearia.cortes.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Repository;
@@ -35,6 +36,15 @@ public class CorteInfraRepository implements CorteRepository {
 		List<Corte> cortes = corteMongoSpringRepository.findAll();
 		log.info("[finaliza] CorteInfraRepository - buscaTodosCortes");
 		return cortes;
+	}
+
+	@Override
+	public Corte buscaCortePorId(UUID idCorte) {
+		log.info("[inicia] CorteInfraRepository - buscaCortePorId");
+		Corte corte = corteMongoSpringRepository.findById(idCorte)
+				.orElseThrow(() -> new RuntimeException("Corte não encontrado!"));
+		log.info("[finaliza] CorteInfraRepository - buscaCortePorId");
+		return corte;
 	}
 
 }
