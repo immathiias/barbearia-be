@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import br.com.mathias.barbearia.usuario.application.api.UsuarioAlteracaoRequest;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioRequest;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,9 @@ import lombok.Getter;
 public class Usuario {
 	@Id
 	private UUID idUsuario;
+	@NotBlank
 	private String nomeUsuario;
+	@NotBlank
 	@Indexed(unique = true)
 	private String telefone;
 	
