@@ -7,6 +7,6 @@ import lombok.Value;
 
 @Builder
 @Value
-public class CortesResponse {
+public class CorteResponse {
 	private UUID idCorte;
 }

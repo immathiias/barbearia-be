@@ -11,10 +11,10 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/v1/corte")
-public interface CortesAPI {
+public interface CorteAPI {
 	
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	CortesResponse postCorte(@RequestBody @Valid CortesRequest corteRequest);
+	CorteResponse postCorte(@RequestBody @Valid CorteRequest corteRequest);
 
 }
