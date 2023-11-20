@@ -1,7 +1,10 @@
 package br.com.mathias.barbearia.cortes.application.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import br.com.mathias.barbearia.cortes.application.api.CorteListResponse;
 import br.com.mathias.barbearia.cortes.application.api.CorteRequest;
 import br.com.mathias.barbearia.cortes.application.api.CorteResponse;
 import br.com.mathias.barbearia.cortes.application.repository.CorteRepository;
@@ -25,6 +28,13 @@ public class CorteApplicationService implements CorteService {
 		return CorteResponse.builder()
 				.idCorte(corteNovo.getIdCorte())
 				.build();
+	}
+
+	@Override
+	public List<CorteListResponse> buscaTodosCortes() {
+		log.info("[inicia] CorteApplicationService - buscaTodosCortes");
+		log.info("[finaliza] CorteApplicationService - buscaTodosCortes");
+		return null;
 	}
 
 }

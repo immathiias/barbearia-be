@@ -28,8 +28,9 @@ public class CorteController implements CorteAPI {
 	@Override
 	public List<CorteListResponse> getTodosCortes() {
 		log.info("[inicia] CortesController - getTodosCortes");
+		List<CorteListResponse> cortes = corteService.buscaTodosCortes();
 		log.info("[finaliza] CortesController - getTodosCortes");
-		return null;
+		return cortes;
 	}
 
 }
