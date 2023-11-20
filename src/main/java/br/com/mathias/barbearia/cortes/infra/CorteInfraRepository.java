@@ -1,5 +1,7 @@
 package br.com.mathias.barbearia.cortes.infra;
 
+import java.util.List;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Repository;
 
@@ -25,6 +27,14 @@ public class CorteInfraRepository implements CorteRepository {
 		}
 		log.info("[finaliza] CorteInfraRepository - salva");
 		return corteNovo;
+	}
+
+	@Override
+	public List<Corte> buscaTodosCortes() {
+		log.info("[inicia] CorteInfraRepository - buscaTodosCortes");
+		List<Corte> cortes = corteMongoSpringRepository.findAll();
+		log.info("[finaliza] CorteInfraRepository - buscaTodosCortes");
+		return cortes;
 	}
 
 }

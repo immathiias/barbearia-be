@@ -33,8 +33,9 @@ public class CorteApplicationService implements CorteService {
 	@Override
 	public List<CorteListResponse> buscaTodosCortes() {
 		log.info("[inicia] CorteApplicationService - buscaTodosCortes");
+		List<Corte> cortes = corteRepository.buscaTodosCortes();
 		log.info("[finaliza] CorteApplicationService - buscaTodosCortes");
-		return null;
+		return CorteListResponse.converte(cortes);
 	}
 
 }
