@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.mathias.barbearia.cortes.application.api.CorteAlteracaoRequest;
 import br.com.mathias.barbearia.cortes.application.api.CorteDetalhadoResponse;
 import br.com.mathias.barbearia.cortes.application.api.CorteListResponse;
 import br.com.mathias.barbearia.cortes.application.api.CorteRequest;
@@ -54,6 +55,15 @@ public class CorteApplicationService implements CorteService {
 		Corte corte = corteRepository.buscaCortePorId(idCorte);
 		corteRepository.deletaCorte(corte);
 		log.info("[finaliza] CorteApplicationService - deletaCortePorId");
+	}
+
+	@Override
+	public void alteraCorte(UUID idCorte, CorteAlteracaoRequest corteAlteracaoRequest) {
+		log.info("[inicia] CorteApplicationService - alteraCorte");
+		Corte corte = corteRepository.buscaCortePorId(idCorte);
+		corte.altera(corteAlteracaoRequest);
+		corteRepository.salva(corte);
+		log.info("[finaliza] CorteApplicationService - alteraCorte");
 	}
 
 }

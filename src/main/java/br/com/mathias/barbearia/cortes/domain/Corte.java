@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.mathias.barbearia.cortes.application.api.CorteAlteracaoRequest;
 import br.com.mathias.barbearia.cortes.application.api.CorteRequest;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -38,5 +39,12 @@ public class Corte {
 		this.valorCorte = corteRequest.getValorCorte();
 		this.tempoEstimadoEmMinutos = corteRequest.getTempoEstimado();
 		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
+
+
+	public void altera(CorteAlteracaoRequest corteAlteracaoRequest) {
+		this.nomeCorte = corteAlteracaoRequest.getNomeCorte();
+		this.valorCorte = corteAlteracaoRequest.getValorCorte();
+		this.tempoEstimadoEmMinutos = corteAlteracaoRequest.getTempoEstimado();
 	}
 }
