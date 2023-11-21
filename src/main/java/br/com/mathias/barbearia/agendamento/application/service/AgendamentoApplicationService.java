@@ -7,12 +7,13 @@ import br.com.mathias.barbearia.agendamento.application.api.AgendamentoResponse;
 import br.com.mathias.barbearia.agendamento.application.repository.AgendamentoRepository;
 import br.com.mathias.barbearia.agendamento.domain.Agendamento;
 import br.com.mathias.barbearia.cortes.application.repository.CorteRepository;
+import br.com.mathias.barbearia.cortes.domain.Corte;
 import br.com.mathias.barbearia.usuario.application.repository.UsuarioRepository;
+import br.com.mathias.barbearia.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -56,7 +57,10 @@ public class AgendamentoApplicationService implements AgendamentoService {
     @Override
     public AgendamentoDetalhadoResponse buscaAgendamentoPorId(UUID idAgendamento) {
         log.info("[inicia] AgendamentoApplicationService - buscaAgendamentoPorId");
+        Agendamento agendamentoDetalhado = agendamentoRepository.buscaAgendamentoPorId(idAgendamento);
+        Usuario usuario = usuarioRepository.buscaUsuarioPorId(agendamentoDetalhado.getUsuarioId());
+        Corte corte = corteRepository.buscaCortePorId(agendamentoDetalhado.getCorteId());
         log.info("[finaliza] AgendamentoApplicationService - buscaAgendamentoPorId");
-        return null;
+        return new AgendamentoDetalhadoResponse(agendamentoDetalhado, usuario, corte);
     }
 }

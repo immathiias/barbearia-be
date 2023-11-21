@@ -22,4 +22,8 @@ public interface AgendamentoAPI {
     @ResponseStatus(code = HttpStatus.OK)
     AgendamentoDetalhadoResponse getAgendamentoPorId(@PathVariable UUID idAgendamento);
 
+    @DeleteMapping("/{idAgendamento}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deleteAgendamentoPorId(@PathVariable UUID idAgendamento);
+
 }
