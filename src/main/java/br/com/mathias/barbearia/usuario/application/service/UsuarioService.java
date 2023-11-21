@@ -10,15 +10,9 @@ import br.com.mathias.barbearia.usuario.application.api.UsuarioRequest;
 import br.com.mathias.barbearia.usuario.application.api.UsuarioResponse;
 
 public interface UsuarioService {
-
 	UsuarioResponse criaUsuario(UsuarioRequest usuario);
-
 	List<UsuarioListResponse> buscaTodosUsuarios();
-
 	UsuarioDetalhadoResponse buscaUsuarioPorId(UUID idUsuario);
-
 	void deletaUsuarioPorId(UUID idUsuario);
-
 	void atualizaUsuarioPorId(UUID idUsuario, UsuarioAlteracaoRequest usuarioAlteracaoRequest);
-
 }
