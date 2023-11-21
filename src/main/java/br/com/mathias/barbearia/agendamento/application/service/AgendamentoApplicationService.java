@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -53,7 +54,7 @@ public class AgendamentoApplicationService implements AgendamentoService {
     }
 
     @Override
-    public AgendamentoDetalhadoResponse buscaAgendamentoPorId() {
+    public AgendamentoDetalhadoResponse buscaAgendamentoPorId(UUID idAgendamento) {
         log.info("[inicia] AgendamentoApplicationService - buscaAgendamentoPorId");
         log.info("[finaliza] AgendamentoApplicationService - buscaAgendamentoPorId");
         return null;

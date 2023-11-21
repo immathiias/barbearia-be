@@ -34,7 +34,7 @@ public class AgendamentoController implements AgendamentoAPI {
     @Override
     public AgendamentoDetalhadoResponse getAgendamentoPorId(UUID idAgendamento) {
         log.info("[inicia] AgendamentoController - getAgendamentoPorId");
-        AgendamentoDetalhadoResponse agendamento = agendamentoService.buscaAgendamentoPorId();
+        AgendamentoDetalhadoResponse agendamento = agendamentoService.buscaAgendamentoPorId(idAgendamento);
         log.info("[finaliza] AgendamentoController - getAgendamentoPorId");
         return agendamento;
     }
