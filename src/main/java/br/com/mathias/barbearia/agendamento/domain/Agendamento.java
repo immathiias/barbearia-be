@@ -1,7 +1,5 @@
 package br.com.mathias.barbearia.agendamento.domain;
 
-import br.com.mathias.barbearia.cortes.domain.Corte;
-import br.com.mathias.barbearia.usuario.domain.Usuario;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
