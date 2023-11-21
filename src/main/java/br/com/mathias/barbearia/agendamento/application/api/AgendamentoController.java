@@ -25,7 +25,8 @@ public class AgendamentoController implements AgendamentoAPI {
     @Override
     public List<AgendamentoListResponse> getTodosAgendamentos() {
         log.info("[inicia] AgendamentoController - getTodosAgendamentos");
+        List<AgendamentoListResponse> agendamentos = agendamentoService.buscaTodosAgendamentos();
         log.info("[finaliza] AgendamentoController - getTodosAgendamentos");
-        return null;
+        return agendamentos;
     }
 }
