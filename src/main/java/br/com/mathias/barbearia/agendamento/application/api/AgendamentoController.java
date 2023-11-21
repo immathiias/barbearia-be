@@ -6,6 +6,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @Validated
 @Log4j2
@@ -18,5 +20,12 @@ public class AgendamentoController implements AgendamentoAPI {
         AgendamentoResponse agendamento = agendamentoService.criaAgendamento(agendamentoRequest);
         log.info("[finaliza] AgendamentoController - postAgendamento");
         return agendamento;
+    }
+
+    @Override
+    public List<AgendamentoListResponse> getTodosAgendamentos() {
+        log.info("[inicia] AgendamentoController - getTodosAgendamentos");
+        log.info("[finaliza] AgendamentoController - getTodosAgendamentos");
+        return null;
     }
 }

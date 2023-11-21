@@ -1,5 +1,6 @@
 package br.com.mathias.barbearia.agendamento.domain;
 
+import br.com.mathias.barbearia.agendamento.application.api.AgendamentoRequest;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,15 @@ public class Agendamento {
 
     private LocalDateTime dataHoraDoCadastro;
     private LocalDateTime dataHoraUltimaAtualizacao;
+
+    public Agendamento(AgendamentoRequest agendamentoRequest) {
+        this.idAgendamento = UUID.randomUUID();
+        this.usuarioId = agendamentoRequest.getUsuarioId();
+        this.corteId = agendamentoRequest.getCorteId();
+        this.dataHora = agendamentoRequest.getDataHora();
+
+        this.dataHoraDoCadastro = LocalDateTime.now();
+    }
 }
 
 
