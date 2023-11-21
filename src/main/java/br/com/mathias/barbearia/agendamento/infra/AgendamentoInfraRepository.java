@@ -44,4 +44,11 @@ public class AgendamentoInfraRepository implements AgendamentoRepository {
         log.info("[finaliza] AgendamentoInfraRepository - buscaAgendamentoPorId");
         return agendamento;
     }
+
+    @Override
+    public void deletaAgendamento(Agendamento agendamento) {
+        log.info("[inicia] AgendamentoInfraRepository - deletaAgendamento");
+        agendamentoMongoSpringRepository.delete(agendamento);
+        log.info("[finaliza] AgendamentoInfraRepository - deletaAgendamento");
+    }
 }

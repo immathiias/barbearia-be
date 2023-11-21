@@ -12,4 +12,5 @@ public interface AgendamentoService {
     AgendamentoResponse criaAgendamento(AgendamentoRequest agendamentoRequest);
     List<AgendamentoListResponse> buscaTodosAgendamentos();
     AgendamentoDetalhadoResponse buscaAgendamentoPorId(UUID idAgendamento);
+    void deletaAgendamentoPorId(UUID idAgendamento);
 }

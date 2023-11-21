@@ -63,4 +63,12 @@ public class AgendamentoApplicationService implements AgendamentoService {
         log.info("[finaliza] AgendamentoApplicationService - buscaAgendamentoPorId");
         return new AgendamentoDetalhadoResponse(agendamentoDetalhado, usuario, corte);
     }
+
+    @Override
+    public void deletaAgendamentoPorId(UUID idAgendamento) {
+        log.info("[inicia] AgendamentoApplicationService - deletaAgendamentoPorId");
+        Agendamento agendamento = agendamentoRepository.buscaAgendamentoPorId(idAgendamento);
+        agendamentoRepository.deletaAgendamento(agendamento);
+        log.info("[finaliza] AgendamentoApplicationService - deletaAgendamentoPorId");
+    }
 }

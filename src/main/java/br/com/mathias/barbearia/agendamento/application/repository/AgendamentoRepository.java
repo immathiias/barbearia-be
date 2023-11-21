@@ -9,4 +9,5 @@ public interface AgendamentoRepository {
     Agendamento salva(Agendamento agendamentoNovo);
     List<Agendamento> buscaTodosAgendamentos();
     Agendamento buscaAgendamentoPorId(UUID idAgendamento);
+    void deletaAgendamento(Agendamento agendamento);
 }

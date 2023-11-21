@@ -42,6 +42,7 @@ public class AgendamentoController implements AgendamentoAPI {
     @Override
     public void deleteAgendamentoPorId(UUID idAgendamento) {
         log.info("[inicia] AgendamentoController - deleteAgendamentoPorId");
+        agendamentoService.deletaAgendamentoPorId(idAgendamento);
         log.info("[finaliza] AgendamentoController - deleteAgendamentoPorId");
     }
 }
