@@ -15,8 +15,6 @@ public class AgendamentoListResponse {
     private LocalDateTime dataHora;
 
 
-
-
     public static AgendamentoListResponse converte(Agendamento agenda, Usuario usuario, Corte corte) {
         return new AgendamentoListResponse(agenda, usuario, corte);
     }

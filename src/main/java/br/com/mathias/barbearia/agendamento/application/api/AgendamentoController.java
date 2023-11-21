@@ -7,6 +7,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @Validated
@@ -28,5 +29,12 @@ public class AgendamentoController implements AgendamentoAPI {
         List<AgendamentoListResponse> agendamentos = agendamentoService.buscaTodosAgendamentos();
         log.info("[finaliza] AgendamentoController - getTodosAgendamentos");
         return agendamentos;
+    }
+
+    @Override
+    public AgendamentoDetalhadoResponse getAgendamentoPorId(UUID idAgendamento) {
+        log.info("[inicia] AgendamentoController - getAgendamentoPorId");
+        log.info("[finaliza] AgendamentoController - getAgendamentoPorId");
+        return null;
     }
 }
