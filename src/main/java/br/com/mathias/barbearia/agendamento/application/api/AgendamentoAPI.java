@@ -26,4 +26,8 @@ public interface AgendamentoAPI {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deleteAgendamentoPorId(@PathVariable UUID idAgendamento);
 
+    @PatchMapping("/{idAgendamento}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void patchAgendamentoPorId(@PathVariable UUID idAgendamento, @RequestBody @Valid AgendamentoAlteracaoRequest agendamentoAlteracaoRequest);
+
 }

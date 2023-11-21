@@ -1,5 +1,6 @@
 package br.com.mathias.barbearia.agendamento.domain;
 
+import br.com.mathias.barbearia.agendamento.application.api.AgendamentoAlteracaoRequest;
 import br.com.mathias.barbearia.agendamento.application.api.AgendamentoListResponse;
 import br.com.mathias.barbearia.agendamento.application.api.AgendamentoRequest;
 import jakarta.validation.constraints.NotNull;
@@ -41,6 +42,13 @@ public class Agendamento {
         this.dataHora = agendamentoRequest.getDataHora();
 
         this.dataHoraDoCadastro = LocalDateTime.now();
+    }
+
+    public void altera(AgendamentoAlteracaoRequest agendamentoAlteracaoRequest) {
+        this.corteId = agendamentoAlteracaoRequest.getCorteId();
+        this.dataHora = agendamentoAlteracaoRequest.getDataHora();
+
+        this.dataHoraUltimaAtualizacao = LocalDateTime.now();
     }
 }
 

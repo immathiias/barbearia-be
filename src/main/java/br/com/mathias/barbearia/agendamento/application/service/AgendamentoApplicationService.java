@@ -1,9 +1,6 @@
 package br.com.mathias.barbearia.agendamento.application.service;
 
-import br.com.mathias.barbearia.agendamento.application.api.AgendamentoDetalhadoResponse;
-import br.com.mathias.barbearia.agendamento.application.api.AgendamentoListResponse;
-import br.com.mathias.barbearia.agendamento.application.api.AgendamentoRequest;
-import br.com.mathias.barbearia.agendamento.application.api.AgendamentoResponse;
+import br.com.mathias.barbearia.agendamento.application.api.*;
 import br.com.mathias.barbearia.agendamento.application.repository.AgendamentoRepository;
 import br.com.mathias.barbearia.agendamento.domain.Agendamento;
 import br.com.mathias.barbearia.cortes.application.repository.CorteRepository;
@@ -70,5 +67,14 @@ public class AgendamentoApplicationService implements AgendamentoService {
         Agendamento agendamento = agendamentoRepository.buscaAgendamentoPorId(idAgendamento);
         agendamentoRepository.deletaAgendamento(agendamento);
         log.info("[finaliza] AgendamentoApplicationService - deletaAgendamentoPorId");
+    }
+
+    @Override
+    public void alteraAgendamentoPorId(UUID idAgendamento, AgendamentoAlteracaoRequest agendamentoAlteracaoRequest) {
+        log.info("[inicia] AgendamentoApplicationService - alteraAgendamentoPorId");
+        Agendamento agendamento = agendamentoRepository.buscaAgendamentoPorId(idAgendamento);
+        agendamento.altera(agendamentoAlteracaoRequest);
+        agendamentoRepository.salva(agendamento);
+        log.info("[finaliza] AgendamentoApplicationService - alteraAgendamentoPorId");
     }
 }
