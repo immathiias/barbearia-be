@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -20,10 +21,10 @@ import java.util.UUID;
 public class Agendamento {
     @Id
     private UUID idAgendamento;
-    @NotNull
-    private Usuario usuario;
-    @NotNull
-    private Corte corte;
+    @Indexed
+    private UUID usuarioId;
+    @Indexed
+    private UUID corteId;
     @NotNull
     private LocalDateTime dataHora;
 
