@@ -7,6 +7,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Log4j2
 @RequiredArgsConstructor
@@ -23,5 +25,13 @@ public class AgendamentoInfraRepository implements AgendamentoRepository {
         }
         log.info("[finaliza] AgendamentoInfraRepository - salva");
         return agendamentoNovo;
+    }
+
+    @Override
+    public List<Agendamento> buscaTodosAgendamentos() {
+        log.info("[inicia] AgendamentoInfraRepository - buscaTodosAgendamentos");
+        List<Agendamento> agendamentos = agendamentoMongoSpringRepository.findAll();
+        log.info("[finaliza] AgendamentoInfraRepository - buscaTodosAgendamentos");
+        return agendamentos;
     }
 }

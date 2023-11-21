@@ -1,5 +1,6 @@
 package br.com.mathias.barbearia.agendamento.domain;
 
+import br.com.mathias.barbearia.agendamento.application.api.AgendamentoListResponse;
 import br.com.mathias.barbearia.agendamento.application.api.AgendamentoRequest;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
@@ -11,7 +12,9 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -29,6 +32,7 @@ public class Agendamento {
 
     private LocalDateTime dataHoraDoCadastro;
     private LocalDateTime dataHoraUltimaAtualizacao;
+
 
     public Agendamento(AgendamentoRequest agendamentoRequest) {
         this.idAgendamento = UUID.randomUUID();
