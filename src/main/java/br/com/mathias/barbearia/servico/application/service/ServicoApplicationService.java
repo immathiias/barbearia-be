@@ -23,9 +23,9 @@ public class ServicoApplicationService implements ServicoService {
 	private final ServicoRepository servicoRepository;
 
 	@Override
-	public ServicoResponse criaServico(ServicoRequest corteRequest) {
+	public ServicoResponse criaServico(ServicoRequest servicoRequest) {
 		log.info("[inicia] ServicoApplicationService - criaServico");
-		Servico servicoNovo = new Servico(corteRequest);
+		Servico servicoNovo = new Servico(servicoRequest);
 		servicoRepository.salva(servicoNovo);
 		log.info("[finaliza] ServicoApplicationService - criaServico");
 		return ServicoResponse.builder()
@@ -58,10 +58,10 @@ public class ServicoApplicationService implements ServicoService {
 	}
 
 	@Override
-	public void alteraServico(UUID idServico, ServicoAlteracaoRequest corteAlteracaoRequest) {
+	public void alteraServico(UUID idServico, ServicoAlteracaoRequest servicoAlteracaoRequest) {
 		log.info("[inicia] ServicoApplicationService - alteraServico");
 		Servico servico = servicoRepository.buscaServicoPorId(idServico);
-		servico.altera(corteAlteracaoRequest);
+		servico.altera(servicoAlteracaoRequest);
 		servicoRepository.salva(servico);
 		log.info("[finaliza] ServicoApplicationService - alteraServico");
 	}
