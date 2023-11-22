@@ -1,4 +1,4 @@
-package br.com.mathias.barbearia.cortes.application.api;
+package br.com.mathias.barbearia.servico.application.api;
 
 import java.util.List;
 import java.util.UUID;
@@ -17,26 +17,26 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/v1/corte")
-public interface CorteAPI {
+@RequestMapping("/v1/servico")
+public interface ServicoAPI {
 	
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	CorteResponse postCorte(@RequestBody @Valid CorteRequest corteRequest);
+	ServicoResponse postServico(@RequestBody @Valid ServicoRequest servicoRequest);
 	
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
-	List<CorteListResponse> getTodosCortes();
+	List<ServicoListResponse> getTodosServicos();
 	
-	@GetMapping("/{idCorte}")
+	@GetMapping("/{idServico}")
 	@ResponseStatus(code = HttpStatus.OK)
-	CorteDetalhadoResponse getCortePorId(@PathVariable UUID idCorte);
+	ServicoDetalhadoResponse getServicoPorId(@PathVariable UUID idServico);
 	
-	@DeleteMapping("/{idCorte}")
+	@DeleteMapping("/{idServico}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void deleteCortePorId(@PathVariable UUID idCorte);
+	void deleteServicoPorId(@PathVariable UUID idServico);
 	
-	@PatchMapping("/{idCorte}")
+	@PatchMapping("/{idServico}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void patchCortePorId(@PathVariable UUID idCorte, @RequestBody @Valid CorteAlteracaoRequest corteAlteracaoRequest);
+	void patchServicoPorId(@PathVariable UUID idServico, @RequestBody @Valid ServicoAlteracaoRequest servicoAlteracaoRequest);
 }

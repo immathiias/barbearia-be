@@ -3,8 +3,8 @@ package br.com.mathias.barbearia.agendamento.application.service;
 import br.com.mathias.barbearia.agendamento.application.api.*;
 import br.com.mathias.barbearia.agendamento.application.repository.AgendamentoRepository;
 import br.com.mathias.barbearia.agendamento.domain.Agendamento;
-import br.com.mathias.barbearia.cortes.application.repository.CorteRepository;
-import br.com.mathias.barbearia.cortes.domain.Corte;
+import br.com.mathias.barbearia.servico.application.repository.ServicoRepository;
+import br.com.mathias.barbearia.servico.domain.Servico;
 import br.com.mathias.barbearia.usuario.application.repository.UsuarioRepository;
 import br.com.mathias.barbearia.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class AgendamentoApplicationService implements AgendamentoService {
     private final AgendamentoRepository agendamentoRepository;
     private final UsuarioRepository usuarioRepository;
-    private final CorteRepository corteRepository;
+    private final ServicoRepository servicoRepository;
 
     @Override
     public AgendamentoResponse criaAgendamento(AgendamentoRequest agendamentoRequest) {
@@ -43,7 +43,7 @@ public class AgendamentoApplicationService implements AgendamentoService {
                 .map(agenda -> AgendamentoListResponse.converte(
                         agenda,
                         usuarioRepository.buscaUsuarioPorId(agenda.getUsuarioId()),
-                        corteRepository.buscaCortePorId(agenda.getCorteId())
+                        servicoRepository.buscaServicoPorId(agenda.getServicoId())
                 ))
                 .collect(Collectors.toList());
 
@@ -56,9 +56,9 @@ public class AgendamentoApplicationService implements AgendamentoService {
         log.info("[inicia] AgendamentoApplicationService - buscaAgendamentoPorId");
         Agendamento agendamentoDetalhado = agendamentoRepository.buscaAgendamentoPorId(idAgendamento);
         Usuario usuario = usuarioRepository.buscaUsuarioPorId(agendamentoDetalhado.getUsuarioId());
-        Corte corte = corteRepository.buscaCortePorId(agendamentoDetalhado.getCorteId());
+        Servico servico = servicoRepository.buscaServicoPorId(agendamentoDetalhado.getServicoId());
         log.info("[finaliza] AgendamentoApplicationService - buscaAgendamentoPorId");
-        return new AgendamentoDetalhadoResponse(agendamentoDetalhado, usuario, corte);
+        return new AgendamentoDetalhadoResponse(agendamentoDetalhado, usuario, servico);
     }
 
     @Override
