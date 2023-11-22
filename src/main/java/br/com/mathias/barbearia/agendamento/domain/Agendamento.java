@@ -27,7 +27,7 @@ public class Agendamento {
     @Indexed
     private UUID usuarioId;
     @Indexed
-    private UUID corteId;
+    private UUID servicoId;
     @NotNull
     private LocalDateTime dataHora;
 
@@ -38,14 +38,14 @@ public class Agendamento {
     public Agendamento(AgendamentoRequest agendamentoRequest) {
         this.idAgendamento = UUID.randomUUID();
         this.usuarioId = agendamentoRequest.getUsuarioId();
-        this.corteId = agendamentoRequest.getCorteId();
+        this.servicoId = agendamentoRequest.getServicoId();
         this.dataHora = agendamentoRequest.getDataHora();
 
         this.dataHoraDoCadastro = LocalDateTime.now();
     }
 
     public void altera(AgendamentoAlteracaoRequest agendamentoAlteracaoRequest) {
-        this.corteId = agendamentoAlteracaoRequest.getCorteId();
+        this.servicoId = agendamentoAlteracaoRequest.getServicoId();
         this.dataHora = agendamentoAlteracaoRequest.getDataHora();
 
         this.dataHoraUltimaAtualizacao = LocalDateTime.now();

@@ -10,6 +10,6 @@ import java.util.UUID;
 @Value
 public class AgendamentoRequest {
     private UUID usuarioId;
-    private UUID corteId;
+    private UUID servicoId;
     private LocalDateTime dataHora;
 }
